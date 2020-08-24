@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 ###Nessus Parser
-
+#Written by Lee and Agatha Armbuster
 
 from xml.dom import pulldom
 
