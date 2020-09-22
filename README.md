@@ -5,7 +5,11 @@
 ##### Required Items:
 1. Standard plugins.xml export file
 2.  Text file containing CVE IDs (e.g. CVE-2020-12345) where each line has only one CVE ID. Other strings can be on the same line but they need to be separated by whitespace
-  * The lines are split on whitespace, selects the first string which needs to be the CVE ID, adds XML tags, and then stores the string in a set.
+
+#### Important Innformation:
+* The lines are split on whitespace, selects the first string which needs to be the CVE ID, adds XML tags, and then stores the string in a set.
+* `pulldom` streams the export data one element at a time and has no understanding of hierarchy within the XML export. 
+* If additional data from the XML export needs to be inlcuded in the report, if statements can be added to the `event_stream` for loop to catch them. It is best practice to add the if statements corresponding to their order of appearance in the XML export. For example, the `script_id` tag comes before the `cves` tag so that is why the former is matched in the first if statement.
   
 ##### Steps to run:
 1. Ensure required items are present in the script's directory.
